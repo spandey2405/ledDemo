@@ -17,12 +17,11 @@
 
 <script>
     function led(fn, id) {
+        var url = "http://192.168.0.103:8081/?id="+id+"&fn="+fn;
+        console.log(url);
         $.ajax({
-            url: "led.php",
-            type: 'POST',
-            data: {
-                "fn": fn, "id": id
-            },
+            url: url,
+            type: 'GET',
             success: function (resp) {
 
             },error: function (error) {
