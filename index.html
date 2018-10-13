@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LedDemo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="asset/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="asset/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<button class="btn btn-danger" onclick="led('on', '2')">Turn On</button><br>
+<button class="btn btn-danger" onclick="led('off', '2')">Turn Off</button><br>
+
+<button class="btn btn-success" onclick="led('on', '3')">Turn On</button><br>
+<button class="btn btn-success" onclick="led('off', '3')">Turn Off</button><br>
+
+<script>
+    function led(fn, id) {
+        $.ajax({
+            url: "led.php",
+            type: 'POST',
+            data: {
+                "fn": fn, "id": id
+            },
+            success: function (resp) {
+
+            },error: function (error) {
+
+            }
+        });
+    }
+</script>
+</body>
+</html>
